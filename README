@@ -14,7 +14,6 @@ Phrase Breaks:
 Prominence:
 ( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.pt_prom float)
 ( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.R:Syllable.p.pt_prom float)
-( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.R:Syllable.n.stress float)
 ( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.R:Syllable.n.pt_prom float)
 
 Intensity:
