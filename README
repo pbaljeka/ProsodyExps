@@ -18,12 +18,12 @@ Prominence:
 ( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.R:Syllable.n.pt_prom float)
 
 Intensity:
-( R:mcep_link.parent.R:segstate.parent.Ivalley float)
-( R:mcep_link.parent.R:segstate.parent.n.Ivalley float)
-( R:mcep_link.parent.R:segstate.parent.p.Ivalley float)
-( R:mcep_link.parent.R:segstate.parent.Ipeak float)
-( R:mcep_link.parent.R:segstate.parent.n.Ipeak float)
-( R:mcep_link.parent.R:segstate.parent.p.Ipeak float)
+( R:mcep_link.parent.R:segstate.parent.pt_Ivalley float)
+( R:mcep_link.parent.R:segstate.parent.n.pt_Ivalley float)
+( R:mcep_link.parent.R:segstate.parent.p.pt_Ivalley float)
+( R:mcep_link.parent.R:segstate.parent.pt_Ipeak float)
+( R:mcep_link.parent.R:segstate.parent.n.pt_Ipeak float)
+( R:mcep_link.parent.R:segstate.parent.p.pt_Ipeak float)
 
 7. Cluster
 8. Synthesize
