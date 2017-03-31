@@ -3,31 +3,29 @@
 
 praat_exe=/home2/pbaljeka/Prosody_Exps/featureAnnotationforPraat/praat-ft-annot
 sourcedir=/home2/pbaljeka/Prosody_Exps/modularProsodyTagger
-VOICEDIR=$1
-basedir=${VOICEDIR}/wav/
+basedir=wav/
 outdir=${VOICEDIR}/prosody_feats/
 mkdir -p $outdir
 
 ###Get the filelist
-##cat $VOICEDIR/etc/txt.done.data|awk '{print $2}' >$VOICEDIR/etc/filelist
-##
-##for filename in `cat $VOICEDIR/etc/filelist`;
-##do
-##    #Get textgrid from prosody tagger for rawspeech
-##    for mod in `echo 01 02 03 05b 06b`;
-##        do
-##        $praat_exe ${sourcedir}/mod${mod}.praat ${basedir} ${filename}
-##    done
-##
-##    #Dumpfeats for syls
-##    $ESTDIR/../festival/examples/dumpfeats -relation Segment -feats ${VOICEDIR}/featnames_syl ${VOICEDIR}/festival/utts/${filename}.utt |uniq|sed '/0 0/d'>${basedir}/${filename}.syl
-##
-##    #Dumpfeats for phones
-##    $ESTDIR/../festival/examples/dumpfeats -relation Segment -feats ${VOICEDIR}/featnames_phone ${VOICEDIR}/festival/utts/${filename}.utt |uniq|sed '/0 0/d'>${basedir}/${filename}.phone
-##done
-##
+cat etc/txt.done.data|awk '{print $2}' > etc/filelist
+for filename in `cat  etc/filelist`;
+do
+    #Get textgrid from prosody tagger for rawspeech
+    for mod in `echo 01 02 03 05b 06b`;
+        do
+        $praat_exe ${sourcedir}/mod${mod}.praat ${basedir} ${filename}
+    done
+
+    #Dumpfeats for syls
+    $ESTDIR/../festival/examples/dumpfeats -relation Segment -feats featnames_syl festival/utts/${filename}.utt |uniq|sed '/0 0/d'>${basedir}/${filename}.syl
+
+    #Dumpfeats for phones
+  $ESTDIR/../festival/examples/dumpfeats -relation Segment -feats featnames_phone ${VOICEDIR}/festival/utts/${filename}.utt |uniq|sed '/0 0/d'>${basedir}/${filename}.phone
+done
+
 ###Dumpfeats in bracjeted form by reading the relevant portions of the textgrid file
-python dump_prosody_feats.py $VOICEDIR/etc/filelist ${basedir} ${outdir}  
+python dump_prosody_feats.py etc/filelist wav/ ${outdir}  
 #Annotate the syls in the dumpfeats files
 ./bin/do_clustergen add_syl_feats
 ./bin/do_clustergen add_phone_feats
