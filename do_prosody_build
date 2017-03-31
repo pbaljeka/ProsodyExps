@@ -14,7 +14,7 @@ do
     #Get textgrid from prosody tagger for rawspeech
     for mod in `echo 01 02 03 05b 06b`;
         do
-        $praat_exe ${sourcedir}/mod${mod}.praat ${basedir} ${filename}
+        $praat_exe ${sourcedir}/mod${mod}.praat `pwd`/${basedir} ${filename}
     done
   
     #Dumpfeats for words
@@ -25,7 +25,7 @@ do
     $ESTDIR/../festival/examples/dumpfeats -relation Segment -feats festival/clunits/featnames_syl festival/utts/${filename}.utt |uniq|sed '/0 0/d'>${basedir}/${filename}.syl
 
     #Dumpfeats for phones
-  $ESTDIR/../festival/examples/dumpfeats -relation Segment -feats festival/clunits/featnames_phone ${VOICEDIR}/festival/utts/${filename}.utt |uniq|sed '/0 0/d'>${basedir}/${filename}.phone
+  $ESTDIR/../festival/examples/dumpfeats -relation Segment -feats festival/clunits/featnames_phone festival/utts/${filename}.utt |uniq|sed '/0 0/d'>${basedir}/${filename}.phone
 done
 
 ###Dumpfeats in bracjeted form by reading the relevant portions of the textgrid file
