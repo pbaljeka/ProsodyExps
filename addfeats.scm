@@ -1,3 +1,13 @@
+;;Phrase breaks on words
+(define (add_word_feats ttd)
+ (mapcar (lambda (x)
+     (set! u (utt.load nil (format nil "festival/utts/%s.utt" (car x))))
+     (set! wf (load (format nil "prosody_feats/%s.break" (car x)) t))
+        (mapcar (lambda (w wf)
+            (item.set_feat w (car wf) (cadr wf)))
+            (utt.relation.items u 'Word) wf)
+         (utt.save u (format nil "festival/utts/%s.utt" (car x)))) (load ttd t) ))
+;;Prominence on syllables
 (define (add_syl_feats ttd)
  (mapcar (lambda (x)
      (set! u (utt.load nil (format nil "festival/utts/%s.utt" (car x))))
@@ -7,6 +17,7 @@
             (utt.relation.items u 'Syllable) wf)
          (utt.save u (format nil "festival/utts/%s.utt" (car x)))) (load ttd t) ))
 
+;;Intensity peaks and valleys on phones
 (define (add_phone_feats ttd)
  (mapcar (lambda (x)
      (set! u (utt.load nil (format nil "festival/utts/%s.utt" (car x))))

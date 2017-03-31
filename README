@@ -1,0 +1,8 @@
+1.Get word, syl, phone times using dumpfeats
+2.Get TextGrid with all feats for raw speech
+3.Annotate words, syls and phones  with breaks, prom and Intensity peaks and valleys respectively
+4.Dump in bracketed format in voicedir/prosdoy_feats as .break, .prom, .Ipeak and .Ivalley
+5 add word, syl and phone feats to utts
+6. Add appropriate pathnames to mcep.desc
+7. Cluster
+8. Synthesize
