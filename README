@@ -1,3 +1,4 @@
+
 1.Get word, syl, phone times using dumpfeats
 2.Get TextGrid with all feats for raw speech
 3.Annotate words, syls and phones  with breaks, prom and Intensity peaks and valleys respectively
@@ -6,3 +7,4 @@
 6. Add appropriate pathnames to mcep.desc
 7. Cluster
 8. Synthesize
+

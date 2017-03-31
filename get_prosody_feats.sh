@@ -30,7 +30,9 @@ done
 
 ###Dumpfeats in bracjeted form by reading the relevant portions of the textgrid file
 python ./bin/dump_prosody_feats.py etc/filelist wav/ ${outdir}  
-#Annotate the syls in the dumpfeats files
+
+cp -r festival/utts festival/backup_utts
+#Annotate utts with feats
 ./bin/do_clustergen add_word_feats
 ./bin/do_clustergen add_syl_feats
 ./bin/do_clustergen add_phone_feats
